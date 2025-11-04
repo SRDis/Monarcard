@@ -6,3 +6,4 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // 🔹 Esto asegura que los assets y rutas internas funcionen en producción
 })
+
