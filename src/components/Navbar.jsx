@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css'; // Importa el CSS
 
 const Navbar = () => {
@@ -15,9 +16,9 @@ const Navbar = () => {
                 
                 {/* Logo de Monarcard */}
                 <div className="navbar__marca">
-                    <a href="/home" className="navbar__logo_cont">
+                    <Link to="/home" className="navbar__logo_cont">
                         <img className='navbar__logo' alt='Monarcard' src='src/assets/logo_principal.png'></img>
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Botón de Hamburguesa (visible solo en móviles) */}
@@ -35,18 +36,18 @@ const Navbar = () => {
                 <div className={`navbar__menu ${isOpen ? 'is-open' : ''}`}>
                     <ul className="navbar__lista">
                         <li className="navbar__item">
-                            <a href="/about" className="navbar__link">About Us</a>
+                            <Link to="/about" className="navbar__link">About Us</Link>
                         </li>
                         <li className="navbar__item">
-                            <a href="/aliados" className="navbar__link">Aliar mi negocio</a>
+                            <Link to="/aliados" className="navbar__link">Aliar mi negocio</Link>
                         </li>
                         <li className="navbar__item">
-                            <a href="/login" className="navbar__link navbar__link--naranja">Ingresar</a>
+                            <Link to="/login" className="navbar__link navbar__link--naranja">Ingresar</Link>
                         </li>
                         <li className="navbar__item navbar__item--cta">
-                            <a href="/signup" className="boton boton--pequeno boton--naranja">
+                            <Link to="/signup" className="boton boton--pequeno boton--naranja">
                                 ¡Obtener Membresía!
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
