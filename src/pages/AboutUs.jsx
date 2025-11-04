@@ -17,21 +17,21 @@ const team = [
     name: "Salvador Reyes",
     role: "Director General y Desarrollo",
     bio: "Encargado de la estrategia. Convierte ideas en productos digitales funcionales, gestionando el rumbo y la salud financiera del proyecto.",
-    photo: "src/assets/salvador_reyes.png",
+    photo: "/assets/salvador_reyes.png",
   },
   {
     id: 2,
     name: "Oliver Guijoza",
     role: "Expansión Comercial y Alianzas",
     bio: "Responsable de las ventas, la expansión en terreno y la coordinación de promotores. Conecta directamente con nuevos aliados y oportunidades de negocio.",
-    photo: "src/assets/oliver_guijoza.png",
+    photo: "/assets/oliver_guijoza.png",
   },
   {
     id: 3,
     name: "Oscar Perrusquia",
     role: "Operaciones y Relaciones Clave",
     bio: "Motor de la operación diaria. Se encarga de la atención al cliente, cobranza y el desarrollo continuo de las alianzas con prestadores de servicios.",
-    photo: "src/assets/oscar_perrus.png",
+    photo: "/assets/oscar_perrus.png",
   },
 ];
 
@@ -159,7 +159,7 @@ export default function AboutUs() {
 
           <div style={styles.heroMedia}>
             <img
-              src="src/assets/logo_principal.png"
+              src="/assets/logo_principal.png"
               alt="Vista Valle de Bravo"
               style={styles.heroImage}
             />
@@ -285,7 +285,7 @@ export default function AboutUs() {
                 <div className="contenedor-limite footer__contenido">
                     {/* Branding y Contacto */}
                     <div className="footer__columna">
-                        <img className='logoFooter' src='src/assets/logo_negativo.png' alt='Monarcard'></img>
+                        <img className='logoFooter' src='/assets/logo_negativo.png' alt='Monarcard'></img>
                         <p className="footer__detalle">Membresía Turística Digital</p>
                         <p className="footer__detalle">📍 Valle de Bravo, México</p>
                         <p className="footer__detalle">✉️ contacto@monarcard.mx</p>
@@ -312,13 +312,13 @@ export default function AboutUs() {
                         <div className="footer__redes">
                             {/* Reemplazar con íconos reales de redes sociales */}
                             <a href="https://www.facebook.com/monarcard" target="_blank" rel="noopener noreferrer"  className="footer__icono-social">
-                                <img className='icono-social' alt='Facebook' src='src/assets/Logo_de_Facebook.png'></img>
+                                <img className='icono-social' alt='Facebook' src='/assets/Logo_de_Facebook.png'></img>
                             </a>
                             <a href="#" className="footer__icono-social">
-                            <img className='icono-social' alt='Instagram' src='src/assets/Instagram_icon.png'></img>
+                            <img className='icono-social' alt='Instagram' src='/assets/Instagram_icon.png'></img>
                             </a>
                             <a href="#" className="footer__icono-social">
-                            <img className='icono-social' alt='Facebook' src='src/assets/tiktok_icono.png'></img>
+                            <img className='icono-social' alt='Facebook' src='/assets/tiktok_icono.png'></img>
                             </a>
                         </div>
                     </div>

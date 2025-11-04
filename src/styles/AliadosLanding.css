@@ -19,7 +19,7 @@
   
   /* ---------------- HERO ---------------- */
   .aliados--hero {
-    background-image: url('src/assets/pexels-fauxels-3184405.jpg');
+    background-image: url('/assets/pexels-fauxels-3184405.jpg');
     background-size: cover;
     background-position: center;
     height: 90vh;

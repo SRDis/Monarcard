@@ -7,7 +7,7 @@ const AliadosLanding = () => {
       {/* Hero */}
       <section className="aliados--hero">
         <div className="aliados--overlay">
-          <h1 className="aliados--titulo"><img className="logoprinc_aliados" src="src/assets/logo_neg_sinslogan.png" alt="Monarcard"></img> <a className="textoNaranjaAliados">Aliados</a></h1>
+          <h1 className="aliados--titulo"><img className="logoprinc_aliados" src="/assets/logo_neg_sinslogan.png" alt="Monarcard"></img> <a className="textoNaranjaAliados">Aliados</a></h1>
           <p className="aliados--subtitulo">
             La nueva forma de vivir y promover Valle de Bravo
           </p>
@@ -136,7 +136,7 @@ const AliadosLanding = () => {
                 <div className="contenedor-limite footer__contenido">
                     {/* Branding y Contacto */}
                     <div className="footer__columna">
-                        <img className='logoFooter' src='src/assets/logo_negativo.png' alt='Monarcard'></img>
+                        <img className='logoFooter' src='/assets/logo_negativo.png' alt='Monarcard'></img>
                         <p className="footer__detalle">Membresía Turística Digital</p>
                         <p className="footer__detalle">📍 Valle de Bravo, México</p>
                         <p className="footer__detalle">✉️ contacto@monarcard.mx</p>
@@ -163,13 +163,13 @@ const AliadosLanding = () => {
                         <div className="footer__redes">
                             {/* Reemplazar con íconos reales de redes sociales */}
                             <a href="#" className="footer__icono-social">
-                                <img className='icono-social' alt='Facebook' src='src/assets/Logo_de_Facebook.png'></img>
+                                <img className='icono-social' alt='Facebook' src='/assets/Logo_de_Facebook.png'></img>
                             </a>
                             <a href="#" className="footer__icono-social">
-                            <img className='icono-social' alt='Instagram' src='src/assets/Instagram_icon.png'></img>
+                            <img className='icono-social' alt='Instagram' src='/assets/Instagram_icon.png'></img>
                             </a>
                             <a href="#" className="footer__icono-social">
-                            <img className='icono-social' alt='Facebook' src='src/assets/tiktok_icono.png'></img>
+                            <img className='icono-social' alt='Facebook' src='/assets/tiktok_icono.png'></img>
                             </a>
                         </div>
                     </div>

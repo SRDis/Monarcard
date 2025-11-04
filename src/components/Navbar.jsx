@@ -17,7 +17,7 @@ const Navbar = () => {
                 {/* Logo de Monarcard */}
                 <div className="navbar__marca">
                     <Link to="/home" className="navbar__logo_cont">
-                        <img className='navbar__logo' alt='Monarcard' src='src/assets/logo_principal.png'></img>
+                        <img className='navbar__logo' alt='Monarcard' src='/assets/logo_principal.png'></img>
                     </Link>
                 </div>
 

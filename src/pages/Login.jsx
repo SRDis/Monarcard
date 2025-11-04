@@ -75,7 +75,7 @@ const Login = () => {
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)', 
       }}
     >
-      <img src='src/assets/logo_sinslogan.png' style={{width:'150px'}} alt="Logo Monarcard"></img>
+      <img src='/assets/logo_sinslogan.png' style={{width:'150px'}} alt="Logo Monarcard"></img>
       <h1 style={{ color: '#1B5E20' }}>Inicia sesión</h1>
 
       <form onSubmit={handleLogin} style={{ marginTop: '30px' }}>

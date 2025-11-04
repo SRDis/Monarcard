@@ -22,9 +22,9 @@ const MonarcardLandingPage = () => {
         <div className="contenedor-principal">
 
             {/* Sección 1: Hero / Portada */}
-            <header className="hero" style={{ backgroundImage: "url('src/assets/pexels-ramo-229757033-12107731.jpg')" }}>
+            <header className="hero" style={{ backgroundImage: "url('/assets/pexels-ramo-229757033-12107731.jpg')" }}>
                 <div className="hero__contenido">
-                    <img className='iconoHeroe' src='src/assets/vite.svg'></img>
+                    <img className='iconoHeroe' src='/assets/vite.svg'></img>
                     <h1 className="hero__titulo">
                         La nueva forma de vivir Valle de Bravo
                     </h1>
@@ -42,7 +42,7 @@ const MonarcardLandingPage = () => {
             <section className="seccion seccion--blanca">
                 <div className="contenedor-limite text-center">
                     <h2 className="seccion__titulo">
-                        ¿Qué es <img className='logoTexto' src='src/assets/logo_sinslogan.png'></img>?
+                        ¿Qué es <img className='logoTexto' src='/assets/logo_sinslogan.png'></img>?
                     </h2>
                     <p className="seccion__parrafo seccion__parrafo--grande">
                         Monarcard es una tarjeta digital inteligente que te da acceso a descuentos, promociones y experiencias únicas en los mejores establecimientos de Valle de Bravo.
@@ -54,12 +54,12 @@ const MonarcardLandingPage = () => {
                     {/* Iconos Destacados */}
                     <div className="caracteristicas-destacadas">
                         <div className="caracteristica__item">
-                            <span className="caracteristica__icono"><img className='iconoQuees' alt='Turista' src='src/assets/854929.png'></img></span>
+                            <span className="caracteristica__icono"><img className='iconoQuees' alt='Turista' src='/assets/854929.png'></img></span>
                             <p className="caracteristica__nombre">Turista:</p>
                             <p className="caracteristica__detalle">Acceso temporal a beneficios.</p>
                         </div>
                         <div className="caracteristica__item">
-                            <span className="caracteristica__icono"><img className='iconoQuees' alt='Local' src='src/assets/10751558.png'></img></span>
+                            <span className="caracteristica__icono"><img className='iconoQuees' alt='Local' src='/assets/10751558.png'></img></span>
                             <p className="caracteristica__nombre">Residente:</p>
                             <p className="caracteristica__detalle">Beneficios recurrentes y reportes mensuales.</p>
                         </div>
@@ -75,7 +75,7 @@ const MonarcardLandingPage = () => {
             <section id="beneficios" className="seccion seccion--blanca">
                 <div className="contenedor-limite text-center">
                     <h2 className="seccion__titulo">
-                         Por qué usar <img className='logoTexto' src='src/assets/logo_sinslogan.png'></img>
+                         Por qué usar <img className='logoTexto' src='/assets/logo_sinslogan.png'></img>
                     </h2>
                     <div className="contenedor-tarjetas">
                         <Card
@@ -104,17 +104,17 @@ const MonarcardLandingPage = () => {
             <section id="membresias" className="seccion seccion--fondo-claro">
                 <div className="contenedor-limite text-center">
                     <h2 className="seccion__titulo">
-                        Elige tu <img className='logoTexto' src='src/assets/logo_sinslogan.png'></img>
+                        Elige tu <img className='logoTexto' src='/assets/logo_sinslogan.png'></img>
                     </h2>
                     <div className="contenedor-tarjetas contenedor-tarjetas--dos-columnas">
                         <Card
-                            icon={<img src="public/images/turista.png" alt="Turista" className="iconoTipo_usuario" />}
+                            icon={<img src="assets/turista.png" alt="Turista" className="iconoTipo_usuario" />}
                             title="Turista"
                             description="Vigencia: 7 días | Ideal para visitantes de fin de semana | Beneficios válidos una sola vez."
                             colorClass="tarjeta--membresia-turista"
                         />
                         <Card
-                            icon={<img src="public/images/residente.png" alt="Residente" className="iconoTipo_usuario" />}
+                            icon={<img src="assets/residente.png" alt="Residente" className="iconoTipo_usuario" />}
                             title="Residente"
                             description="Vigencia: 12 meses | Acceso recurrente a promociones y experiencias | Reporte mensual de beneficios."
                             colorClass="tarjeta--membresia-residente"
@@ -130,7 +130,7 @@ const MonarcardLandingPage = () => {
             <section id="como-funciona" className="seccion seccion--blanca">
                 <div className="contenedor-limite text-center">
                     <h2 className="seccion__titulo">
-                        ¿ Cómo usar <img className='logoTexto' src='src/assets/logo_sinslogan.png'></img> ?
+                        ¿ Cómo usar <img className='logoTexto' src='/assets/logo_sinslogan.png'></img> ?
                     </h2>
                     <div className="contenedor-pasos">
                         {/* Paso 1 */}
@@ -199,7 +199,7 @@ const MonarcardLandingPage = () => {
                 <div className="contenedor-limite cta__contenido">
                     <div className="cta__texto">
                         <h2 className="cta__titulo">
-                            <img className='iconoVive' src='src/assets/mariposa_negativo.png'></img> Vive Valle de Bravo al máximo con Monarcard
+                            <img className='iconoVive' src='/assets/mariposa_negativo.png'></img> Vive Valle de Bravo al máximo con Monarcard
                         </h2>
                         <p className="cta__parrafo">
                             Únete a la membresía digital que conecta visitantes y residentes con los mejores negocios del destino. Disfruta beneficios exclusivos, apoya al comercio local y vive experiencias únicas.
@@ -218,7 +218,7 @@ const MonarcardLandingPage = () => {
                 <div className="contenedor-limite footer__contenido">
                     {/* Branding y Contacto */}
                     <div className="footer__columna">
-                        <img className='logoFooter' src='src/assets/logo_negativo.png' alt='Monarcard'></img>
+                        <img className='logoFooter' src='/assets/logo_negativo.png' alt='Monarcard'></img>
                         <p className="footer__detalle">Membresía Turística Digital</p>
                         <p className="footer__detalle">📍 Valle de Bravo, México</p>
                         <p className="footer__detalle">✉️ contacto@monarcard.mx</p>
@@ -245,13 +245,13 @@ const MonarcardLandingPage = () => {
                         <div className="footer__redes">
                             {/* Reemplazar con íconos reales de redes sociales */}
                             <a href="https://www.facebook.com/monarcard" target="_blank" rel="noopener noreferrer"  className="footer__icono-social">
-                                <img className='icono-social' alt='Facebook' src='src/assets/Logo_de_Facebook.png'></img>
+                                <img className='icono-social' alt='Facebook' src='/assets/Logo_de_Facebook.png'></img>
                             </a>
                             <a href="#" className="footer__icono-social">
-                            <img className='icono-social' alt='Instagram' src='src/assets/Instagram_icon.png'></img>
+                            <img className='icono-social' alt='Instagram' src='/assets/Instagram_icon.png'></img>
                             </a>
                             <a href="#" className="footer__icono-social">
-                            <img className='icono-social' alt='Facebook' src='src/assets/tiktok_icono.png'></img>
+                            <img className='icono-social' alt='Facebook' src='/assets/tiktok_icono.png'></img>
                             </a>
                         </div>
                     </div>

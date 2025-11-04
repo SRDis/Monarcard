@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabaseClient'; // Asegúrate de que la ruta sea correcta
-import IconoMariposaNaranja from '../assets/images/icono_mariposaNaranja.png';
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
@@ -56,7 +55,7 @@ const AdminLogin = () => {
     <div style={{ display:'flex', justifyContent:'center', alignItems:'center', height:'80vh' }}>
       <form onSubmit={handleLogin} style={{ background:'#fff', padding:'30px', borderRadius:'10px', boxShadow:'0 0 10px rgba(0,0,0,0.1)', display:'flex', flexDirection:"column" }}>
         
-        <img style={{width:'100px', alignSelf: 'center'}} className='logo_Admin' src={IconoMariposaNaranja} alt="Logo de Administración" />
+        <img style={{width:'100px', alignSelf: 'center'}} className='logo_Admin' src='/public/vite.svg' alt="Logo de Administración" />
         
         <h2 style={{ color:'#1B5E20', marginBottom:'20px', textAlign: 'center'}}>Acceso de Administrador</h2>
         
