@@ -1,0 +1,207 @@
+/* ==============================================
+   Estilos exclusivos Landing Aliados Monarcard
+   ============================================== */
+   :root {
+    --aliados-verde: #1b5e20;
+    --aliados-verde-claro: #4caf50;
+    --aliados-dorado: #c0a44d;
+    --aliados-blanco: #ffffff;
+    --aliados-gris: #f4f4f4;
+    --aliados-texto: #1f1f1f;
+    --aliados-font: "Poppins", sans-serif;
+  }
+  
+  .aliados {
+    font-family: var(--aliados-font);
+    color: var(--aliados-texto);
+    background-color: var(--aliados-blanco);
+  }
+  
+  /* ---------------- HERO ---------------- */
+  .aliados--hero {
+    background-image: url('src/assets/pexels-fauxels-3184405.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    position: relative;
+  }
+  
+  .aliados--overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    color: var(--aliados-blanco);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .mariposaHeroAliados {
+    width: 100px;
+    height: auto;
+  }
+
+  .logoprinc_aliados {
+    width: 330px;
+    height: auto;
+
+  }
+
+  .textoNaranjaAliados {
+    color: #dc5400;
+  }
+  
+  .aliados--titulo {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  
+  .aliados--subtitulo {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin-bottom: 2rem;
+  }
+  
+  /* ---------------- SECCIONES ---------------- */
+  .aliados--seccion {
+    padding: 4rem 1rem;
+  }
+  
+  .aliados--contenedor {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .aliados--titulo-seccion {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--aliados-verde);
+  }
+  
+  .aliados--titulo-seccion-blanco {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--aliados-blanco);
+  }
+  
+  .aliados--fondo-claro {
+    background-color: var(--aliados-gris);
+  }
+  
+  .aliados--fondo-verde {
+    background-color: var(--aliados-verde);
+    color: var(--aliados-blanco);
+  }
+  
+  /* ---------------- GRID BENEFICIOS ---------------- */
+  .aliados--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+  }
+  
+  .aliados--card {
+    background-color: var(--aliados-blanco);
+    color: var(--aliados-texto);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .aliados--card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* ---------------- LISTA FUNCIONAMIENTO ---------------- */
+  .aliados--lista {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .aliados--lista li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 4px solid var(--aliados-verde-claro);
+  }
+  
+  /* ---------------- TABLA ---------------- */
+  .aliados--tabla {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+  
+  .aliados--tabla th {
+    background-color: var(--aliados-verde);
+    color: var(--aliados-blanco);
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  .aliados--tabla td {
+    border: 1px solid #ddd;
+    padding: 1rem;
+  }
+  
+  .aliados--tabla tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  /* ---------------- CTA FINAL ---------------- */
+  .aliados--cta {
+    background: linear-gradient(135deg, var(--aliados-verde) 40%, var(--aliados-dorado) 100%);
+    color: var(--aliados-blanco);
+    text-align: center;
+    padding: 5rem 1rem;
+  }
+  
+  .aliados--cta h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .aliados--cta p {
+    font-size: 1.125rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+  
+  /* ---------------- BOTONES ---------------- */
+  .aliados--boton {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  
+  .aliados--boton-dorado {
+    background-color: var(--aliados-dorado);
+    color: var(--aliados-verde);
+    border: 2px solid var(--aliados-dorado);
+  }
+  
+  .aliados--boton-dorado:hover {
+    background-color: transparent;
+    color: var(--aliados-blanco);
+    border-color: var(--aliados-blanco);
+  }
+  
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (min-width: 768px) {
+    .aliados--titulo {
+      font-size: 4rem;
+    }
+  
+    .aliados--seccion {
+      padding: 6rem 2rem;
+    }
+  }
+  
