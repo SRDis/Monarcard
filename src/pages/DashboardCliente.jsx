@@ -26,48 +26,51 @@ const DashboardCliente = () => {
    * Genera el contenido del QR, invalida los QRs antiguos en la DB 
    * y registra el nuevo QR como activo en la tabla 'qr_codes'.
    */
+  // ✅ INICIO DE LA CORRECCIÓN
   const generateQR = async (userId) => {
-    // 1. Generar los datos del QR (Base64 codificado)
     const timestamp = Date.now();
     const token = Math.random().toString(36).substring(2, 8);
-    const newQrData = btoa(`${userId}-${timestamp}-${token}`);
-    
-    // Establecer el estado del componente para la visualización inmediata
+
+    // ✅ CAMBIO: Usa "|" como delimitador en lugar de "-"
+    const newQrData = btoa(`${userId}|${timestamp}|${token}`);
+
+    console.log("🔍 Generando QR:");
+    console.log("- userId:", userId);
+    console.log("- Cadena sin codificar:", `${userId}|${timestamp}|${token}`);
+    console.log("- QR Base64:", newQrData);
+
     setQrData(newQrData);
 
     try {
-      // A. INACTIVAR QR ANTIGUOS
       setMensaje("Invalidando códigos QR anteriores...");
       const { error: updateError } = await supabase
         .from("qr_codes")
         .update({ estado: "inactivo" })
         .eq("usuario_id", userId)
-        .eq("estado", "activo"); // Solo inactivar los que están activos
+        .eq("estado", "activo");
 
       if (updateError) {
         console.error("Error al invalidar QRs antiguos:", updateError.message);
-        // No es un error fatal, continuamos con la inserción
       }
 
-      // B. INSERTAR NUEVO QR
       setMensaje("Registrando nuevo código QR...");
       const { data: insertData, error: insertError } = await supabase
         .from("qr_codes")
         .insert([
           {
             usuario_id: userId,
-            qr_data: newQrData, // La cadena Base64 generada
-            fecha_generacion: new Date().toISOString(), // Fecha actual
-            estado: "activo", // El nuevo QR está activo
+            qr_data: newQrData,
+            fecha_generacion: new Date().toISOString(),
+            estado: "activo",
           },
         ])
         .select();
 
       if (insertError) {
         console.error("Error al registrar QR en DB:", insertError.message);
-        setMensaje("¡Alerta! QR generado, pero hubo un error al registrarlo en la base de datos.");
+        setMensaje("¡Alerta! QR generado, pero hubo un error al registrarlo.");
       } else {
-        console.log("Registro QR exitoso:", insertData);
+        console.log("✅ Registro QR exitoso:", insertData);
         setMensaje("Código QR actualizado y registrado exitosamente.");
       }
     } catch (dbError) {
@@ -75,25 +78,31 @@ const DashboardCliente = () => {
       setMensaje("Ocurrió un error inesperado al gestionar el QR.");
     }
   };
+  // ✅ FIN DE LA CORRECCIÓN
 
   const fetchUserProfile = async (authUser) => {
+    console.log("🔍 Buscando usuario con ID:", authUser.id);
+    
     const { data, error } = await supabase
       .from("users")
       .select("*")
       .eq("id", authUser.id)
       .single();
-
+  
+    console.log("🔍 Resultado búsqueda:", { data, error });
+  
     if (error) {
       console.error("Error obteniendo perfil:", error);
       setMensaje("Error al cargar el perfil.");
     } else {
+      console.log("✅ Usuario encontrado:", data.nombre);
       setUser({
-        id: authUser.id,
+        id: authUser.id, // 👈 USA authUser.id (el UUID de Supabase Auth)
         email: authUser.email,
         name: data.nombre || "Cliente",
-        tipo: data.tipo_cuenta || "cliente_turista",
-        foto: data.profile_pic || data.fotografia_url || null, // 👈 AQUÍ EL CAMBIO
-        fecha_creacion: data.created_at,
+        tipo: data.tipo_cuenta || data.tipo_membresia || "cliente_turista", // 👈 Ajustado a tipo_membresia
+        foto: data.profile_pic || data.fotografia_url || null,
+        fecha_creacion: data.created_at || data.fecha_creacion, // 👈 Ajustado
         fecha_expiracion: data.fecha_expiracion || null,
       });
       verificarMembresia(data);
