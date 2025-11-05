@@ -21,10 +21,59 @@ const DashboardCliente = () => {
   const navigate = useNavigate();
 
   // ----------------- FUNCIONES -----------------
-  const generateQR = (userId) => {
+
+  /**
+   * Genera el contenido del QR, invalida los QRs antiguos en la DB 
+   * y registra el nuevo QR como activo en la tabla 'qr_codes'.
+   */
+  const generateQR = async (userId) => {
+    // 1. Generar los datos del QR (Base64 codificado)
     const timestamp = Date.now();
     const token = Math.random().toString(36).substring(2, 8);
-    setQrData(btoa(`${userId}-${timestamp}-${token}`));
+    const newQrData = btoa(`${userId}-${timestamp}-${token}`);
+    
+    // Establecer el estado del componente para la visualización inmediata
+    setQrData(newQrData);
+
+    try {
+      // A. INACTIVAR QR ANTIGUOS
+      setMensaje("Invalidando códigos QR anteriores...");
+      const { error: updateError } = await supabase
+        .from("qr_codes")
+        .update({ estado: "inactivo" })
+        .eq("usuario_id", userId)
+        .eq("estado", "activo"); // Solo inactivar los que están activos
+
+      if (updateError) {
+        console.error("Error al invalidar QRs antiguos:", updateError.message);
+        // No es un error fatal, continuamos con la inserción
+      }
+
+      // B. INSERTAR NUEVO QR
+      setMensaje("Registrando nuevo código QR...");
+      const { data: insertData, error: insertError } = await supabase
+        .from("qr_codes")
+        .insert([
+          {
+            usuario_id: userId,
+            qr_data: newQrData, // La cadena Base64 generada
+            fecha_generacion: new Date().toISOString(), // Fecha actual
+            estado: "activo", // El nuevo QR está activo
+          },
+        ])
+        .select();
+
+      if (insertError) {
+        console.error("Error al registrar QR en DB:", insertError.message);
+        setMensaje("¡Alerta! QR generado, pero hubo un error al registrarlo en la base de datos.");
+      } else {
+        console.log("Registro QR exitoso:", insertData);
+        setMensaje("Código QR actualizado y registrado exitosamente.");
+      }
+    } catch (dbError) {
+      console.error("Excepción al manipular QR:", dbError);
+      setMensaje("Ocurrió un error inesperado al gestionar el QR.");
+    }
   };
 
   const fetchUserProfile = async (authUser) => {
@@ -148,7 +197,7 @@ const DashboardCliente = () => {
 
       const authUser = session.user;
       await fetchUserProfile(authUser);
-      generateQR(authUser.id);
+      await generateQR(authUser.id); // <-- ¡Ahora con 'await' para esperar la DB!
       await fetchBenefits();
       await fetchRedemptions(authUser.id);
 
