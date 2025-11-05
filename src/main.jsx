@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Importamos useEffect
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'; // Importamos useLocation
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -15,16 +15,35 @@ import BeneficiosListaCompleta from "./pages/BeneficiosListaCompleta"
 import AboutUs from './pages/AboutUs';
 import './styles/global.css';
 
+
+// --- 🚀 NUEVO COMPONENTE: ScrollToTop ---
+const ScrollToTop = () => {
+  // Obtiene el objeto de ubicación actual
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Al cambiar 'pathname' (es decir, al cambiar de ruta), 
+    // desplazamos la ventana al inicio de la página.
+    window.scrollTo(0, 0);
+  }, [pathname]); // Se ejecuta cada vez que la ruta cambia
+
+  return null; // Este componente no renderiza nada visible
+};
+// ------------------------------------------
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-    <Navbar />
+      {/* 💡 APLICACIÓN DEL COMPONENTE */}
+      <ScrollToTop />
+      
+      <Navbar />
       <Routes>
-        {/* 💡 CORRECCIÓN APLICADA AQUÍ: */}
-        {/* 1. La ruta raíz (/) ahora carga la MonarcardLandingPage */}
+        {/* La ruta raíz (/) ahora carga la MonarcardLandingPage */}
         <Route path="/" element={<MonarcardLandingPage />} /> 
         
-        {/* 2. Mantienes /home por si se utiliza específicamente */}
+        {/* Mantienes /home por si se utiliza específicamente */}
         <Route path="/home" element={<MonarcardLandingPage />} /> 
         {/* ---------------------------------------------------- */}
 
