@@ -1,28 +1,46 @@
-import React from 'react';
-import { Scanner } from '@yudiel/react-qr-scanner';
+import React, { useState } from "react";
+import BarcodeScannerComponent from "react-qr-barcode-scanner";
 
 const QrScannerComponent = ({ onScan }) => {
-    return (
-        <div style={{ 
-            height: '250px', 
-            width: '100%', 
-            borderRadius: '4px', 
-            border: '5px solid #FF6B35' 
-        }}>
-            <Scanner
-                onScan={(result) => {
-                    // result es un array, tomamos el valor del primer código detectado
-                    if (result && result.length > 0) {
-                        onScan(result[0].rawValue);
-                    }
-                }}
-                onError={(error) => {
-                    console.error('Error del escáner:', error);
-                }}
-                constraints={{ facingMode: 'environment' }} // Prioriza la cámara trasera
-            />
-        </div>
-    );
+  const [data, setData] = useState("Escanea un código QR...");
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        border: "5px solid #FF6B35",
+        borderRadius: "8px",
+        padding: "10px",
+        width: "100%",
+        maxWidth: "400px",
+        margin: "0 auto",
+      }}
+    >
+      <BarcodeScannerComponent
+        width={300}
+        height={300}
+        onUpdate={(err, result) => {
+          if (result) {
+            setData(result.text);
+            if (onScan) onScan(result.text);
+          }
+        }}
+      />
+      <p
+        style={{
+          marginTop: "10px",
+          fontWeight: "bold",
+          color: "#333",
+          textAlign: "center",
+        }}
+      >
+        {data}
+      </p>
+    </div>
+  );
 };
 
 export default QrScannerComponent;
